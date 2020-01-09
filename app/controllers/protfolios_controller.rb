@@ -1,5 +1,5 @@
 class ProtfoliosController < ApplicationController
-  before_action :load_item, only: [:update]
+  before_action :set_protfolio, only: [:edit, :update]
 
   def index
     @protfolios = Protfolio.all
@@ -7,6 +7,9 @@ class ProtfoliosController < ApplicationController
 
   def new
     @protfolio = Protfolio.new
+  end
+
+  def edit
   end
 
   def create
@@ -20,12 +23,19 @@ class ProtfoliosController < ApplicationController
   end
 
   def update
+    if @protfolio.update(params.require(:protfolio).permit(:title, :subtitle, :body, :thumb_image))
+      redirect_to protfolios_path, notice: "Record updated successfully"
+    else
+      render :edit
+    end
   end
 
   def destroy
   end
 
-  def load_item
-    @protfolio = Protfolio.find(params(:id))
+  private
+
+  def set_protfolio
+    @protfolio = Protfolio.find(params[:id])
   end
 end
