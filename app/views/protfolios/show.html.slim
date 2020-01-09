@@ -1,0 +1,5 @@
+h2 = @protfolio.title
+h3 = @protfolio.subtitle
+p  = @protfolio.body
+= image_tag @protfolio.thumb_image
+= link_to "Edit", edit_protfolio_path(@protfolio)

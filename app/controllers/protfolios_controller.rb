@@ -1,5 +1,5 @@
 class ProtfoliosController < ApplicationController
-  before_action :set_protfolio, only: [:edit, :update]
+  before_action :set_protfolio, only: [:edit, :update, :show]
 
   def index
     @protfolios = Protfolio.all
@@ -28,6 +28,9 @@ class ProtfoliosController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
   end
 
   def destroy
