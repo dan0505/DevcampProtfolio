@@ -1,5 +1,5 @@
 class ProtfoliosController < ApplicationController
-  before_action :set_protfolio, only: [:edit, :update, :show]
+  before_action :set_protfolio, only: [:edit, :update, :show, :destroy]
 
   def index
     @protfolios = Protfolio.all
@@ -34,6 +34,8 @@ class ProtfoliosController < ApplicationController
   end
 
   def destroy
+    @protfolio.destroy
+    redirect_to protfolios_path, notice: "Protfolio Removed"
   end
 
   private
