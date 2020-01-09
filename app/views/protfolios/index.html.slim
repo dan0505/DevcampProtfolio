@@ -1,5 +1,10 @@
+h1 Protfolio Items
+
+= link_to "Create New Item", new_protfolio_path
+
 - @protfolios.each do |protfolio|
-  h1 = protfolio.title
-  h2 = protfolio.subtitle
+  h2 = protfolio.title
+  h3 = protfolio.subtitle
   p  = protfolio.body
   = image_tag protfolio.thumb_image
+  = link_to "Edit", edit_protfolio_path(protfolio)
