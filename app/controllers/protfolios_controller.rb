@@ -5,6 +5,18 @@ class ProtfoliosController < ApplicationController
     @protfolios = Protfolio.all
   end
 
+  def angular
+    @title = "Angular"
+    @protfolios = Protfolio.angular
+    render :index
+  end
+
+  def ruby_on_rails
+    @title = "Ruby on Rails"
+    @protfolios = Protfolio.ruby_on_rails
+    render :index
+  end
+
   def new
     @protfolio = Protfolio.new
   end
